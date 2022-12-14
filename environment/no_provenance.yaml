@@ -1,0 +1,12 @@
+name: no_provenance
+dependencies:
+  - python == 3.9
+  - scipy
+  - numpy
+  - matplotlib
+  - pip
+  - pip:
+    - nixio
+    - neo
+    - elephant
+    - odml
