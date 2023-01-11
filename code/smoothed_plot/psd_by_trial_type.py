@@ -219,9 +219,6 @@ def main(session_files, output_dir, skip_channels):
         # Iterate over each trial type
         for trial_idx, trial_type in enumerate(all_trial_types):
 
-            if trial_idx > 1:
-                continue
-
             # Select the trials for the analysis
             # Raw data is in the last AnalogSignal
             logging.info(f"Extracting starting events for {trial_type}")
