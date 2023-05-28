@@ -52,7 +52,7 @@ def main(source, output):
                          output_file=add_suffix_to_gexf_file(output_path, "simplified_Q_units_AS_shape_function"))
 
     prov_graph.aggregate({'Quantity': ('units', )}, use_function_parameters=False,
-                         output_file=add_suffix_to_gexf_file(output_path, "simplified_Q_units_function"))
+                         output_file=add_suffix_to_gexf_file(output_path, "simplified_Q_units"))
 
 
 if __name__ == "__main__":
