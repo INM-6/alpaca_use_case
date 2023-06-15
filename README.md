@@ -98,11 +98,15 @@ The code is organized into subfolders inside the `/code` folder:
    in the paper. The analysis is implemented in `psd_by_trial_type.py`. The
    flowchart presented in Figure 4 was constructed based on this script.
 
-* `provenance`: this is the code in `no_provenance` modified to use Alpaca to
-  track provenance.
+* `provenance`: `psd_by_trial_type.py` is the code in `no_provenance` modified 
+  to use Alpaca to track provenance. The `generate_gexf_from_prov.py` script 
+  generates several visualization graphs, with different levels of 
+  simplification, using the provenance information saved as a Turtle file.
 
-* `smoothed_plot`: modification of the original analysis to produce a smoothed
-  version of the PSD plot.
+* `smoothed_plot`: `psd_by_trial_type.py` contains a modification of the 
+  original analysis to produce a smoothed version of the PSD plot. The 
+  `generate_gexf_from_prov.py` script generates a simplified visualization 
+  graphs from the provenance information saved as a Turtle file.
 
 
 ## How to run
