@@ -1,0 +1,54 @@
+[2023-01-25 13:57:08,686] root INFO: Start time: 2023-01-25 13:57:08.686086
+[2023-01-25 13:57:08,686] root INFO: Processing files: /home/koehler/PycharmProjects/alpaca_use_case/code/no_provenance/../../data/i140703-001.nix,/home/koehler/PycharmProjects/alpaca_use_case/code/no_provenance/../../data/l101210-001.nix
+[2023-01-25 13:57:09,173] root INFO: Processing /home/koehler/PycharmProjects/alpaca_use_case/code/no_provenance/../../data/i140703-001.nix; skipping channels None
+[2023-01-25 14:02:34,629] root INFO: Extracting starting events for PGLF
+[2023-01-25 14:02:34,636] root INFO: Extracting trial epochs for PGLF
+[2023-01-25 14:02:34,638] root INFO: Cutting trials of type PGLF
+[2023-01-25 14:02:41,742] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:02:44,964] root INFO: Extracting starting events for PGHF
+[2023-01-25 14:02:44,967] root INFO: Extracting trial epochs for PGHF
+[2023-01-25 14:02:44,967] root INFO: Cutting trials of type PGHF
+[2023-01-25 14:02:52,661] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:02:56,063] root INFO: Extracting starting events for SGLF
+[2023-01-25 14:02:56,065] root INFO: Extracting trial epochs for SGLF
+[2023-01-25 14:02:56,065] root INFO: Cutting trials of type SGLF
+[2023-01-25 14:03:03,220] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:03:06,338] root INFO: Extracting starting events for SGHF
+[2023-01-25 14:03:06,340] root INFO: Extracting trial epochs for SGHF
+[2023-01-25 14:03:06,341] root INFO: Cutting trials of type SGHF
+[2023-01-25 14:03:13,800] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:03:17,128] root INFO: Processing /home/koehler/PycharmProjects/alpaca_use_case/code/no_provenance/../../data/l101210-001.nix; skipping channels [2, 4]
+[2023-01-25 14:08:35,680] root INFO: Extracting starting events for PGLF
+[2023-01-25 14:08:35,701] root INFO: Extracting trial epochs for PGLF
+[2023-01-25 14:08:35,708] root INFO: Cutting trials of type PGLF
+[2023-01-25 14:08:42,438] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:08:45,241] root INFO: Extracting starting events for PGHF
+[2023-01-25 14:08:45,244] root INFO: Extracting trial epochs for PGHF
+[2023-01-25 14:08:45,244] root INFO: Cutting trials of type PGHF
+[2023-01-25 14:08:52,137] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:08:54,882] root INFO: Extracting starting events for SGLF
+[2023-01-25 14:08:54,884] root INFO: Extracting trial epochs for SGLF
+[2023-01-25 14:08:54,885] root INFO: Cutting trials of type SGLF
+[2023-01-25 14:09:05,500] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:09:08,422] root INFO: Extracting starting events for SGHF
+[2023-01-25 14:09:08,427] root INFO: Extracting trial epochs for SGHF
+[2023-01-25 14:09:08,428] root INFO: Cutting trials of type SGHF
+[2023-01-25 14:09:13,691] root INFO: Computing PSD
+/home/koehler/anaconda3/envs/no_provenance/lib/python3.9/site-packages/scipy/signal/filter_design.py:1630: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  warnings.warn("Badly conditioned filter coefficients (numerator): the "
+[2023-01-25 14:09:15,812] root INFO: Saving output to /home/koehler/PycharmProjects/alpaca_use_case/code/no_provenance/../../outputs/no_provenance/R2G_PSD_all_subjects.png
+[2023-01-25 14:09:17,242] root INFO: End time: 2023-01-25 14:09:17.242102; Total processing time:0:12:08.556016
