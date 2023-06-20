@@ -81,7 +81,8 @@ For convenience, all necessary environments can be created using a `bash`
 script (this rewrites existing versions of the environments):
 
 ```bash
-./environment/build_envs.sh
+cd environment
+./build_envs.sh
 ```
 
 For visualization of provenance graphs as GEXF files, Gephi 0.9.7 (build 
