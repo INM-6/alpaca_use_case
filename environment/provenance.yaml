@@ -10,4 +10,4 @@ dependencies:
     - neo
     - elephant
     - odml
-    - alpaca-prov==0.1.0
+# alpaca PyPI package entry removed for double-blind review
