@@ -23,7 +23,7 @@ This repository must be cloned to a local folder. This can be done using the
 `git` CLI client:
 
 ```bash
-git clone https://github.com/INM-6/alpaca_use_case.git
+git clone [URL redacted for double-blind review]
 ```
 
 
@@ -87,8 +87,8 @@ cd environment
 
 For visualization of provenance graphs as GEXF files, Gephi 0.9.7 (build 
 202208031831) was used. The instructions for downloading and installing are
-found in the [Installation](https://alpaca-prov.readthedocs.io/en/latest/install.html#external-tools-for-provenance-visualization) section of the 
-[Alpaca documentation](https://alpaca-prov.readthedocs.io/).
+found in the Installation [URL redacted for double-blind review] section of the 
+[URL redacted for double-blind review].
 
 
 ## Code repository
@@ -155,6 +155,7 @@ the scripts run using the provided `bash` scripts:
 ## Outputs
 
 The outputs presented in the paper are available in the `/outputs` folder.
+**[Files were removed for double-blind review, as they identified the authors]**
 
 The bash scripts write files to the `/outputs` folder, with respect to
 the root of this repository. There are subfolders with the same names as
@@ -197,13 +198,7 @@ contain text files to further document the execution:
 
 ## Acknowledgments
 
-This work was performed as part of the Helmholtz School for Data Science in 
-Life, Earth and Energy (HDS-LEE) and received funding from the Helmholtz 
-Association of German Research Centres. This project has received funding from 
-the European Union’s Horizon 2020 Framework Programme for Research and 
-Innovation under Specific Grant Agreements No. 785907 (Human Brain Project 
-SGA2) and 945539 (Human Brain Project SGA3), and by the Helmholtz Association 
-Initiative and Networking Fund under project number ZT-I-0003.
+[redacted for double-blind review]
 
 
 ## License
