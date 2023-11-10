@@ -21,7 +21,7 @@ from alpaca import Provenance, activate, save_provenance, alpaca_setting
 from alpaca.utils.files import get_file_name
 
 
-# Apply the decorator to the funtions used
+# Apply the decorator to the functions used
 
 butter = Provenance(inputs=['signal'])(butter)
 
