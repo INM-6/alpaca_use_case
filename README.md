@@ -36,8 +36,8 @@ must be downloaded.
 The scripts use the datasets in the NIX format (including the 30 kHz neural
 signal), and the versioned files are accessible using the links:
 
-* **i140703-001.nix**: <https://gin.g-node.org/INT/multielectrode_grasp/raw/to_nix/datasets_nix/i140703-001.nix>
-* **l101210-001.nix**: <https://gin.g-node.org/INT/multielectrode_grasp/raw/to_nix/datasets_nix/l101210-001.nix>
+* **i140703-001.nix**: <https://gin.g-node.org/INT/multielectrode_grasp/raw/a6d508be099c41b4047778bc2de55ac216f4e673/datasets_nix/i140703-001.nix>
+* **l101210-001.nix**: <https://gin.g-node.org/INT/multielectrode_grasp/raw/a6d508be099c41b4047778bc2de55ac216f4e673/datasets_nix/l101210-001.nix>
 
 You can also follow the [instructions on the GIN repository](https://gin.g-node.org/INT/multielectrode_grasp)
 to download the files to a local repository folder using the `gin` client.
