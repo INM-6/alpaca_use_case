@@ -1,0 +1,14 @@
+name: provenance-mpi
+dependencies:
+  - python == 3.9
+  - scipy
+  - numpy
+  - matplotlib
+  - pip
+  - pip:
+    - nixio
+    - neo
+    - elephant
+    - odml
+    - alpaca-prov==0.1.0
+    - mpi4py
