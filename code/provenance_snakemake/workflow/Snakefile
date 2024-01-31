@@ -1,0 +1,71 @@
+configfile: "../configs/config.yaml"
+
+from pathlib import Path
+import re
+
+# Helper functions
+
+def get_session_input_files_and_path(config):
+    sessions = config['sessions']
+    data_path = Path(config['data_path']).expanduser().resolve().absolute()
+
+    data_files = [file for file in data_path.iterdir()
+                  if file.suffix == ".nix"]
+    session_codes = [re.match(r"^([a-z]\d{6}-\d{3})", file.stem).group(1)
+                     for file in data_files]
+
+    return {session: file for session, file in zip(session_codes, data_files)
+            if sessions == 'all' or session in sessions}, data_path
+
+def get_trial_type_color_parameter(config):
+    return ";".join([f"{key}={value}"
+                     for key, value in config['trial_types'].items()])
+
+
+ALL_TRIAL_TYPES = config['trial_types'].keys()
+
+SESSION_FILES, DATA_PATH = get_session_input_files_and_path(config)
+
+OUTPUT_PATH = Path(config['output_path']).expanduser().resolve().absolute()
+PSDS_OUTPUT_PATH = OUTPUT_PATH / "psds_by_trial_type"
+PLOT_FILE = OUTPUT_PATH / config['psd_plot_file']
+
+
+rule all:
+    input:
+        [PLOT_FILE] + list(SESSION_FILES.values())
+
+
+rule compute_psd_by_trial_type:
+    input:
+        DATA_PATH / "{session_code}.nix"
+    output:
+        [PSDS_OUTPUT_PATH / f"{{session_code}}_{trial_type}.pickle"
+         for trial_type in ALL_TRIAL_TYPES]
+    params:
+        output_path=PSDS_OUTPUT_PATH,
+        skip_channels=lambda wildcards: ",".join(map(str,
+            config['skip_channels'].get(wildcards.session_code, [0]))),
+        trial_types_param=",".join(ALL_TRIAL_TYPES)
+    shell:
+        """
+        python compute_psd_by_trial_type.py \
+            --output_path="{params.output_path}" \
+            --skip_channels="{params.skip_channels}" \
+            --trial_types="{params.trial_types_param}" "{input[0]}"
+        """
+
+rule plot_psds:
+    input:
+        expand( PSDS_OUTPUT_PATH / "{session_code}_{trial_type}.pickle",
+            session_code=SESSION_FILES.keys(),
+            trial_type=ALL_TRIAL_TYPES)
+    output:
+        PLOT_FILE
+    params:
+        trial_types_param=get_trial_type_color_parameter(config)
+    shell:
+        """
+        python plot_psds.py --output_file="{output[0]}" \
+            --trial_types="{params.trial_types_param}" {input}
+        """

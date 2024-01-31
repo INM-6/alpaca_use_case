@@ -1,0 +1,22 @@
+# Path where input files with session data are located (NIX format)
+data_path: ../../../data
+
+# Path were output files and provenance is stored
+output_path: ../../../outputs/provenance_snakemake
+
+# Name of the workflow output file
+psd_plot_file: R2G_PSD_all_subjects.png
+
+# Sessions to be included (all == all NIX files in the data path)
+sessions: all
+
+# Channels to skip for specific sessions
+skip_channels:
+  l101210-001 : [2, 4]
+
+# Trial codes that will be used, together with a color code for the plot
+trial_types:
+  PGLF: k
+  PGHF: b
+  SGLF: r
+  SGHF: g
