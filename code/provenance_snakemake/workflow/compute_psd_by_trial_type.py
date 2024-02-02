@@ -53,7 +53,7 @@ def load_data(file_name):
     return block
 
 
-@Provenance(inputs=['frequencies', 'all_psds_stacked'],
+@Provenance(inputs=['frequencies', 'psds', 'subject_name'],
             file_output=['file_name'])
 def save_psd_data(file_name, frequencies, psds, subject_name=None):
     data = {'frequencies': frequencies,
