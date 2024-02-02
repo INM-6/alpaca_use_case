@@ -56,5 +56,5 @@ if __name__ == "__main__":
 
     source_files = [file
                     for file in Path(args.source_path).expanduser().absolute().rglob("*.ttl")]
-    print(source_files)
+
     main(source_files, args.output)
