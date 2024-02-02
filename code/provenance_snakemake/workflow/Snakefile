@@ -21,6 +21,12 @@ def get_trial_type_color_parameter(config):
     return ";".join([f"{key}={value}"
                      for key, value in config['trial_types'].items()])
 
+def get_plot_order_parameter(config):
+    plot_order = config.get('order', None)
+    if plot_order:
+        return f'--plot_order="{";".join(plot_order)}"'
+    return ""
+
 
 ALL_TRIAL_TYPES = config['trial_types'].keys()
 
@@ -63,9 +69,11 @@ rule plot_psds:
     output:
         PLOT_FILE
     params:
-        trial_types_param=get_trial_type_color_parameter(config)
+        trial_types_param=get_trial_type_color_parameter(config),
+        plot_order=get_plot_order_parameter(config)
     shell:
         """
         python plot_psds.py --output_file="{output[0]}" \
-            --trial_types="{params.trial_types_param}" {input}
+            --trial_types="{params.trial_types_param}" \
+            {params.plot_order} {input}
         """

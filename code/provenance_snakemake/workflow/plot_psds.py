@@ -121,8 +121,7 @@ def save_plot(fig, file_name, **kwargs):
     fig.savefig(file_name, **kwargs)
 
 
-def main(psd_data_files, output_file, trial_types):
-
+def main(psd_data_files, output_file, trial_types, plot_order):
     # Use builtin hash for matplotlib objects
     alpaca_setting('use_builtin_hash_for_module', ['matplotlib'])
     alpaca_setting('authority', "fz-juelich.de")
@@ -135,13 +134,15 @@ def main(psd_data_files, output_file, trial_types):
     # Get number of subjects and sort the input files
     subject_psd_data = get_subject_psd_data(psd_data_files)
     n_subjects = len(subject_psd_data.keys())
+    subjects = plot_order if plot_order else subject_psd_data.keys()
 
     # Generate the plotting objects
     fig, axes = create_main_plot_objects(n_subjects,
                                          "PSD for each trial type")
 
     # Iterate over PSD data files of each subject
-    for sub_idx, subject in enumerate(subject_psd_data.keys()):
+    for sub_idx, subject in enumerate(subjects):
+        logging.info(f"Processing subject: {subject}")
 
         for trial_type, color in trial_types.items():
             trial_data_file = subject_psd_data[subject][trial_type]
@@ -175,10 +176,15 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--output_file', type=str, required=True)
     parser.add_argument('--trial_types', type=str, required=True)
+    parser.add_argument('--plot_order', type=str, required=False,
+                        default=None)
     parser.add_argument('input', metavar='input', nargs="+")
     args = parser.parse_args()
 
     psd_data_files = [Path(arg).expanduser().absolute() for arg in args.input]
+
+    plot_order_value = args.plot_order
+    plot_order = plot_order_value.split(";") if plot_order_value else None
 
     # Colors for the plot passed as a list
     # trial_type1=color_code;trial_type2=color_code...
@@ -192,7 +198,7 @@ if __name__ == "__main__":
     logging.info(f"Start time: {start}")
 
     # Run the analysis
-    main(psd_data_files, output_file, trial_types)
+    main(psd_data_files, output_file, trial_types, plot_order)
 
     end = datetime.now()
     logging.info(f"End time: {end}; Total processing time:{end - start}")

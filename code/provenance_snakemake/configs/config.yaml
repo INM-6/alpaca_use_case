@@ -10,6 +10,11 @@ psd_plot_file: R2G_PSD_all_subjects.png
 # Sessions to be included (all == all NIX files in the data path)
 sessions: all
 
+# Order in plot
+# If specified, forces the plotting script to produce the plot of each session
+# file in this order, from left to right.
+order: ['i140703-001', 'l101210-001']
+
 # Channels to skip for specific sessions
 skip_channels:
   l101210-001 : [2, 4]
