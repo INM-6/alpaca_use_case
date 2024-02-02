@@ -10,6 +10,6 @@ dependencies:
     - neo
     - elephant
     - odml
-    - alpaca-prov==0.1.0
+    - git+https://github.com/INM-6/alpaca.git@f795d09b9a936c4a1d33835047f1981a2993bf1f  # Patched alpaca-prov==0.1.0
     - snakemake
     - pulp<2.8
