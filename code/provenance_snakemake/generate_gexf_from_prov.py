@@ -12,10 +12,8 @@ def add_suffix_to_gexf_file(source, suffix):
 def merge_graphs(merged_file, *source_files):
     doc = AlpacaProvDocument()
     for file in source_files:
-        print(file)
         file_path = file.expanduser().absolute()
         doc.read_records(file_path, file_format="turtle")
-    print(merged_file)
     doc.serialize(merged_file)
 
 
@@ -37,35 +35,17 @@ def main(source, output):
                                      remove_none=True,
                                      strip_namespace=True)
 
-    # Save full graph before transformations
-    print("Saving full graph")
-    full_graph_path = add_suffix_to_gexf_file(output_path, "full")
-    prov_graph.save_gexf(full_graph_path)
-
     # We are condensing all container memberships except for the Segment
     print("Condensing memberships")
     prov_graph.condense_memberships(preserve=['Segment'])
 
-    # Save the condensed graph
+    # Save the GEXF graph that can be read by Gephi
     print("Saving GEXF")
     prov_graph.save_gexf(output_path)
 
-    # Generate and save simplifications
     print("Simplifying graph")
-    prov_graph.aggregate({}, use_function_parameters=False,
-                         output_file=add_suffix_to_gexf_file(output_path, "simplified"))
-
-    prov_graph.aggregate({'Quantity': ('shape', 'units', )}, use_function_parameters=True,
-                         output_file=add_suffix_to_gexf_file(output_path, "simplified_Q_shape_units_function"))
-
-    prov_graph.aggregate({'Quantity': ('shape', 'units', )}, use_function_parameters=False,
-                         output_file=add_suffix_to_gexf_file(output_path, "simplified_Q_shape_units.gexf"))
-
-    prov_graph.aggregate({'Quantity': ('units', ), 'AnalogSignal': ('shape',)}, use_function_parameters=True,
-                         output_file=add_suffix_to_gexf_file(output_path, "simplified_Q_units_AS_shape_function"))
-
     prov_graph.aggregate({'Quantity': ('units', )}, use_function_parameters=False,
-                         output_file=add_suffix_to_gexf_file(output_path, "simplified_Q_units"))
+                         output_file=output_path.parent / (output_path.stem + "_simplified.gexf"))
 
 
 if __name__ == "__main__":
@@ -75,7 +55,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     source_files = [file
-                    for file in Path(args.source_path).expanduser().absolute().iterdir()
-                    if file.suffix == ".ttl"]
-
+                    for file in Path(args.source_path).expanduser().absolute().rglob("*.ttl")]
+    print(source_files)
     main(source_files, args.output)

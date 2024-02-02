@@ -80,6 +80,8 @@ Project requires Python 3.9 and the following packages:
 
 The example using MPI parallelization requires `mpi4py`.
 
+The example using Snakemake requires `snakemake`.
+
 The code was run using Ubuntu 18.04.6 LTS 64-bit and `conda` 22.9.0.
 
 
@@ -123,6 +125,18 @@ The code is organized into subfolders inside the `/code` folder:
   and plot it. The `generate_gexf_from_prov.py` script generates simplified
   visualization graphs from the provenance information saved as a Turtle file.
 
+* `provenance_snakemake`: the `psd_by_trial_type.py` code in `provenance` is
+  split into multiple scripts in `workflow`: 
+  - `compute_psd_by_trial_type.py` reads a data file and compute the PSDs for
+    each trial type, saving into pickle files.
+  - `plot_psds.py` reads all pickle files and produces the final plot.
+  
+  The Snakemake workflow manager is used to orchestrate the execution. The
+  workflow is defined in `workflow\Snakefile` and the workflow configuration
+  in `configs\config.yaml`.
+  The `generate_gexf_from_prov.py` script generates simplified
+  visualization graphs from the provenance information saved as a Turtle file.
+
 * `smoothed_plot`: `psd_by_trial_type.py` contains a modification of the 
   original analysis to produce a smoothed version of the PSD plot. The 
   `generate_gexf_from_prov.py` script generates simplified visualization 
@@ -161,13 +175,23 @@ the scripts run using the provided `bash` scripts:
    ./visualize_provenance.sh
    ```
 
- * `provenance_mpi`:
+* `provenance_mpi`:
 
    To run the analysis and generate the GEXF graphs at the end:
 
    ```bash
    cd code/provenance_mpi
    conda activate provenance-mpi
+   ./run.sh
+   ```
+
+* `provenance_snakemake`:
+
+   To run the analysis and generate the GEXF graphs at the end:
+
+   ```bash
+   cd code/provenance_snakemake
+   conda activate provenance-snakemake
    ./run.sh
    ```
 
