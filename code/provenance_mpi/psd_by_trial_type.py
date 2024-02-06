@@ -275,15 +275,12 @@ def main(session_files, output_dir, skip_channels):
 
                 del filtered_signal
 
-            # Combine the PSDs of each trial and summarize
+            # Combine the PSDs of each trial
             all_psds_stacked = vstack_quantities(*all_psds)
-            psd_mean = mean(all_psds_stacked, axis=0)
-            psd_sem = sem(all_psds_stacked, axis=0)
 
             # Store data for plotting
             subject_psd_data[trial_type]['frequencies'] = all_freqs[0]
-            subject_psd_data[trial_type]['psd_mean'] = psd_mean
-            subject_psd_data[trial_type]['psd_sem'] = psd_sem
+            subject_psd_data[trial_type]['psds'] = all_psds_stacked
 
         # Fetch data from all MPI processes (if main process) or
         # send data to main process
@@ -305,8 +302,10 @@ def main(session_files, output_dir, skip_channels):
             for trial_type in trial_types.keys():
                 trial_data = subject_psd_data[trial_type]
                 frequencies = trial_data['frequencies']
-                psd_mean = trial_data['psd_mean']
-                psd_sem = trial_data['psd_sem']
+                all_psds_stacked = trial_data['psds']
+
+                psd_mean = mean(all_psds_stacked, axis=0)
+                psd_sem = sem(all_psds_stacked, axis=0)
 
                 plot_lfp_psd(axes[sub_idx], frequencies, psd_mean, psd_sem,
                              color=trial_types[trial_type], lw=1,
