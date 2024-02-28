@@ -11,5 +11,5 @@ dependencies:
     - neo==0.11.1
     - elephant==0.11.2
     - odml==1.5.1
-    - git+https://github.com/INM-6/alpaca.git@f795d09b9a936c4a1d33835047f1981a2993bf1f  # Patched alpaca-prov==0.1.0
     - mpi4py
+# alpaca PyPI package entry removed for double-blind review

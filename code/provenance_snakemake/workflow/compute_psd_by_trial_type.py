@@ -109,7 +109,7 @@ def vstack_quantities(*arrays):
 
 def main(subject_file, output_dir, skip_channels, trial_types):
 
-    alpaca_setting('authority', "fz-juelich.de")
+    alpaca_setting('authority', "my-authority")
 
     # Activate provenance tracking
     activate()

@@ -124,7 +124,7 @@ def save_plot(fig, file_name, **kwargs):
 def main(psd_data_files, output_file, trial_types, plot_order):
     # Use builtin hash for matplotlib objects
     alpaca_setting('use_builtin_hash_for_module', ['matplotlib'])
-    alpaca_setting('authority', "fz-juelich.de")
+    alpaca_setting('authority', "my-authority")
 
     # Activate provenance tracking
     activate()
